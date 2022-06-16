@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-    
+    //  --> constants <-- //
     const monsterContainer = document.querySelector('#monster-container');
     const monsterForm = document.querySelector('#create-monster form');
     const backBtn = document.querySelector('#back');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     let pageNum = 1;
   
-    
+    // --> functions <-- //
     const getMonsterData = async (limit, page = pageNum) => {
       const data = await (await fetch(url + `/?_limit=${limit}&_page=${page}`)).json();
       const divs = [];
@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
       monsterContainer.append(...divs);
     }
   
-    
+    // --> event listeners <-- //
     monsterForm.addEventListener('submit', e => {
       console.log(e)
       // debugger;
       e.preventDefault();
-      
+      // const  [ {value: name}, {value: age}, {value: description} ] = monsterForm;
       const name = monsterForm.querySelector('#nameInput').value
       const age = monsterForm.querySelector('#ageInput').value || "unknown"
       const description = monsterForm.querySelector('#descriptionInput').value
@@ -55,9 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!res.ok) console.error(res.status)
           else console.log("posted");
       })
-        .catch(err => {
-          throw new Error(err)
-        })
+        .catch(err => {throw new Error(err)})
   
     })
   

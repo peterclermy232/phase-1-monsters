@@ -56,8 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
           else console.log("posted");
       })
         .catch(err => {
-          throw new Error(err)
-        })
+          throw new Error(err)})
   
     })
   

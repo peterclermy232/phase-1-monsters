@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       monsterContainer.append(...divs);
     }
   
-    
+    // --> event listeners <-- //
     monsterForm.addEventListener('submit', e => {
       console.log(e)
       // debugger;
@@ -55,9 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!res.ok) console.error(res.status)
           else console.log("posted");
       })
-        .catch(err => {
-          throw new Error(err)
-        })
+        .catch(err => {throw new Error(err)})
   
     })
   

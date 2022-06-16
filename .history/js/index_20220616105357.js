@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     let pageNum = 1;
   
-    
+    // --> functions <-- //
     const getMonsterData = async (limit, page = pageNum) => {
       const data = await (await fetch(url + `/?_limit=${limit}&_page=${page}`)).json();
       const divs = [];
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       monsterContainer.append(...divs);
     }
   
-    
+    // --> event listeners <-- //
     monsterForm.addEventListener('submit', e => {
       console.log(e)
       // debugger;
@@ -55,9 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!res.ok) console.error(res.status)
           else console.log("posted");
       })
-        .catch(err => {
-          throw new Error(err)
-        })
+        .catch(err => {throw new Error(err)})
   
     })
   
